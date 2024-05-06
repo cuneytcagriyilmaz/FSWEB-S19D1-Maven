@@ -28,14 +28,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<FruitErrorResponse> handleException(HandlerMethodValidationException exception) {
         FruitErrorResponse fruitErrorResponse = new FruitErrorResponse(HttpStatus.BAD_REQUEST.value(),
                 Arrays.stream(Objects.requireNonNull(exception.getDetailMessageArguments())).findFirst().isPresent() ? Arrays.stream(exception.getDetailMessageArguments()).findFirst().get().toString() : "hata oluştu", LocalDateTime.now());
-        log.error("Plant exception occured: ", exception);
+        log.error("Fruit exception occured: ", exception);
         return new ResponseEntity<>(fruitErrorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler
     public ResponseEntity<FruitErrorResponse> handleException(Exception exception) {
         FruitErrorResponse fruitErrorResponse = new FruitErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage(), LocalDateTime.now());
-        log.error("Plant exception occured: ", exception);
+        log.error("Fruit exception occured: ", exception);
         return new ResponseEntity<>(fruitErrorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
