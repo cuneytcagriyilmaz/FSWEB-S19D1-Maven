@@ -37,7 +37,7 @@ public class FruitController {
         return new FruitResponse("get by id succed!", fruitService.getById(id));
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/{name}")
     public List<Fruit> getByName(@Size(min = 2, max = 45, message = "Name size must be between 2 to 45") @PathVariable("name") String name) {
         return fruitService.searchByName(name);
     }
