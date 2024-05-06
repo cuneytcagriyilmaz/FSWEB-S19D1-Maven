@@ -13,6 +13,8 @@ public interface FruitRepository extends JpaRepository<Fruit, Long> {
     List<Fruit> getByPriceDesc();
 
 
+
+
     @Query(value = "SELECT f.id,f.name,f.price,f.fruit_type FROM fruit f ORDER BY f.price ASC", nativeQuery = true)
     List<Fruit> getByPriceAsc();
 

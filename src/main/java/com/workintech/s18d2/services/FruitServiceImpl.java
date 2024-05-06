@@ -19,7 +19,7 @@ public class FruitServiceImpl implements FruitService {
     public Fruit getById(long id) {
         return fruitRepository
                 .findById(id)
-                .orElseThrow(() -> new FruitException("plant with given id is not exist: " + id, HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new FruitException("Fruit with given id is not exist: " + id, HttpStatus.NOT_FOUND));
 
 
     }
